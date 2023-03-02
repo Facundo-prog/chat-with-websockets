@@ -14,7 +14,7 @@ formSignin.addEventListener('submit', async (e) => {
   if(!username || !password)return errorMessage.textContent = "Nombre de usuario o contraseña invalido!"
   if(!socket.connected) return errorMessage.textContent = "No hay conexión"
   if(image.length <= 0) return errorMessage.textContent = "Foto de perfil invalida!"
-  if(image.length >= 1 && image[0].size >= 400000) return errorMessage.textContent = "La foto de perfil es muy grande, elija otra"
+  if(image.length >= 1 && image[0].size >= 980000) return errorMessage.textContent = "La foto de perfil es muy grande, elija otra"
 
   errorMessage.textContent = "";
   userMessage.textContent = "Registrando usuario...";
