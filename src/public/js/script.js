@@ -10,7 +10,7 @@ let userData = {};
 
 sendButton.addEventListener('click', () => {
   const message = document.getElementById('message');
-  if(message.length <= 0) return;
+  if(message.value.length <= 0) return;
 
   const date = new Date();
   const formattedDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() }`;
