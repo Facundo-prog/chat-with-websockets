@@ -13,17 +13,14 @@ formSignin.addEventListener('submit', async (e) => {
 
   if(!username || !password)return errorMessage.textContent = "Nombre de usuario o contraseña invalido!"
   if(!socket.connected) return errorMessage.textContent = "No hay conexión"
+  if(image.length <= 0) return errorMessage.textContent = "Foto de perfil invalida!"
   if(image.length >= 1 && image[0].size >= 400000) return errorMessage.textContent = "La foto de perfil es muy grande, elija otra"
 
   errorMessage.textContent = "";
   userMessage.textContent = "Registrando usuario...";
  
-  if(!image.length >= 1){
-    return socket.emit('signin', { username, password, userImage: null });
-  }
-
   socket.emit("upload", image[0], image[0].type, username, (status) => {
-    if(status.error) return errorMessage.textContent = "Error al guardar la foto de perfil";
+    if(status.error) return errorMessage.textContent = status.message;
     socket.emit('signin', { username, password, userImage: status.message });
   });
 });
