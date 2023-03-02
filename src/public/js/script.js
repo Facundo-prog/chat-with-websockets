@@ -24,7 +24,7 @@ sendButton.addEventListener('click', () => {
 });
 
 logoutButton.addEventListener('click', () => {
-  document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/webchat;domain=localhost;";
+  document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/webchat;";
   location.href = "/webchat/login";
 });
 
@@ -37,6 +37,10 @@ socket.on('connect', async () => {
 });
 
 socket.on('getUser', data => {
+  if(data.error){
+    document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/webchat;";
+    location.href = "/webchat/login";
+  }
   userData = { ...userData, ...data };
   socket.emit('getMessages', userData.token);
 });
