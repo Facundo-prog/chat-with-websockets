@@ -54,9 +54,12 @@ const createServer = (httpServer) => {
     
     // Signin
     socket.on('signin', async (data) => {
-      const { username, password, userImage } = data;
+      const { username, password } = data;
+      let { userImage } = data;
+
       const user = await pg.getCustomWhere('users', `username = '${username}'`);
       if(user.length >= 1) return socket.emit('signin', { error: 'El usuario ya existe. Use otro' });
+      if(!userImage) userImage = '/public/images/default.png';
 
       const hash = await passwordHash(password);
       const createUser = await pg.create('users', {
