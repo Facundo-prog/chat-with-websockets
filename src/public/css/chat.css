@@ -1,0 +1,85 @@
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.all-messages {
+  display: block;
+  padding: 50px 25px;
+  overflow-y: scroll;
+  max-height: 70vh;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.userSentItMessage{
+  flex-flow: row-reverse;
+  justify-content: right;
+}
+
+.userSentItMessage .message-body{
+  text-align: right;
+  margin-right: 10px;
+}
+
+.message .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message .image-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message .image-container img {
+  display: block;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.message .message-body {
+  margin-left: 10px;
+  width: calc(100% - 50px)
+}
+
+.message .message-body .user-info {
+  font-weight: bold;
+}
+
+.message .message-body .user-info .time {
+  color: #a19c9c;
+  font-size: 13px;
+}
+
+.message .message-body p {
+  margin-top: 5px;
+  color: #6e6e6e;
+  font-size: 14px;
+}
+
+.send-message {
+  background: #3F51B5;
+  padding: 10px;
+  display: flex;
+}
+
+.send-message input {
+  width: 100%;
+  padding: 7px 5px;
+}
+
+.send-message button {
+  margin-left: 10px;
+}
+
+.listUsersConnected{
+  color: #000 !important;
+  text-align: left;
+}

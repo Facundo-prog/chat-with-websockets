@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/chat.css">
+
+  <title>Webchat</title>
+</head>
+<body>
+  <header>
+    <h1>Webchat</h1>
+
+    <div>
+      <select class="btn listUsersConnected" id="usersConnected"></select>
+      <button class="btn" id="logout">Salir</button>
+    </div>
+  </header>
+
+  <main>
+    <p id="userMessage" class="userMessage">Cargando...</p>
+  
+    <div class="all-messages" id="all-messages"></div>
+    
+    <p id="errorMessage" class="errorMessage"></p>
+
+    <div class="send-message">
+      <input type="text" id="message" />
+      <button type="button" id="send-message" class="btn secondary">Enviar</button>
+    </div>
+  </main>
+  
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/script.js"></script>
+</body>
+</html>

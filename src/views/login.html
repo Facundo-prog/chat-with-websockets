@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/login.css">
+  
+  <title>Login</title>
+</head>
+<body>
+  <header>
+    <h1>Webchat</h1>
+  </header>
+
+  <main>
+    <h3>Iniciar sesion</h3>
+
+    <form class="card" id="login">
+      <p class="userMessage" id="userMessage"></p>
+
+      <div class="input-group">
+        <label for="username">Nombre de usuario</label>
+        <input type="text" name="username" required /><br/>
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" required />
+      </div>
+
+      <p id="errorMessage"class="errorMessage"></p>
+
+      <div class="button-container">
+        <input type="submit" class="btn primary" value="Entrar al chat">
+      </div>
+    </form>
+
+    <div class="link-container">
+      <a href="/webchat/signin" class="btn">No tengo cuenta. Registrarse</a>
+    </div>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/public/js/login.js"></script>
+</body>
+</html>
