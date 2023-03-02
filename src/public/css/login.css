@@ -19,7 +19,7 @@ main form .button-container {
   margin-top: 10px;
 } 
 
-@media screen and (max-width: 950px){ 
+@media screen and (max-width: 750px){ 
   main form {
     width: 80%;
     padding: 20px;
