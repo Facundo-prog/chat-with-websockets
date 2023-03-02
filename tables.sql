@@ -1,3 +1,5 @@
+CREATE DATABASE webchat;
+
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username varchar(64) UNIQUE NOT NULL,
