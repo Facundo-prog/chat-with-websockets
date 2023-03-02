@@ -18,3 +18,10 @@ main form .input-group label {
 main form .button-container {
   margin-top: 10px;
 } 
+
+@media screen and (max-width: 950px){ 
+  main form {
+    width: 80%;
+    padding: 20px;
+  }
+}
