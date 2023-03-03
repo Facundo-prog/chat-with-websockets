@@ -94,7 +94,7 @@ const createServer = (httpServer) => {
       const pathImage = join(__dirname, `./public/images/${nameImage}`);
 
       mkdir(dirname(pathImage), { recursive: true}, function (err) {
-        if(err) return { error: true, message: "Ocurrió un error al guardar la imagen" }
+        if(err) return callback({ error: true, message: "Ocurrió un error al guardar la imagen" });
       
         writeFile(pathImage, file, (err) => {
           callback({ error: err ? true : false, message: err ? err : `public/images/${nameImage}` });
