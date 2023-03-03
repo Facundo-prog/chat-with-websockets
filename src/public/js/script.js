@@ -5,6 +5,7 @@ const messages = document.getElementById('all-messages');
 const errorMessage = document.getElementById('errorMessage');
 const userMessage = document.getElementById('userMessage');
 const logoutButton = document.getElementById('logout');
+const containerUsersConnected = document.getElementById('containerUsersConnected');
 
 let userData = {};
 
@@ -122,18 +123,25 @@ function showChatsHistory(chats){
 }
 
 socket.on('usersConnected', sockets => {
-  const select = document.getElementById('usersConnected');
+  const users = document.getElementById('usersConnected');
   const keys = Object.keys(sockets);
 
-  select.innerHTML = "";
+  users.innerHTML = "";
 
   keys.forEach(key => {
     if(sockets[key].username)
-    select.innerHTML += `
+    users.innerHTML += `
       <div>
         <div class="img" style="background-image:url(${sockets[key].image});"></div>
         <p>${sockets[key].username}</p>
       </div>
     `;
   });
+
+  containerUsersConnected.style.backgroundColor = "#4bcc47";
+  containerUsersConnected.style.maxHeight = "800px";
+
+  setTimeout(() => {
+    containerUsersConnected.style = "";
+  }, 2000);
 });
