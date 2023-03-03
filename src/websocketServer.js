@@ -1,7 +1,7 @@
 const { Server } = require('socket.io');
 const pg = require('./db/postgres');
-const path = require('path');
-const { writeFile } = require('fs');
+const { join, dirname } = require('path');
+const { writeFile, mkdir } = require('fs');
 const { passwordHash, verifyPassword } = require('./cryptography/hash');
 const { verifyToken, newToken } = require('./cryptography/jwt');
 
@@ -91,9 +91,14 @@ const createServer = (httpServer) => {
         return callback({ error: true, message: "Formato de la foto de perfil invalida!" });
       }
       const nameImage = `${username}.${imageType.split('/')[1]}`;
+      const pathImage = join(__dirname, `./public/images/${nameImage}`);
 
-      writeFile(path.join(__dirname, `./public/images/${nameImage}`), file, (err) => {
-        callback({ error: err ? true : false, message: err ? err : `public/images/${nameImage}` });
+      mkdir(dirname(pathImage), { recursive: true}, function (err) {
+        if(err) return { error: true, message: "Ocurrió un error al guardar la imagen" }
+      
+        writeFile(pathImage, file, (err) => {
+          callback({ error: err ? true : false, message: err ? err : `public/images/${nameImage}` });
+        });
       });
     });
 
