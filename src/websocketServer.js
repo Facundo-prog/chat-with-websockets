@@ -25,8 +25,11 @@ const createServer = (httpServer) => {
           }
         }
       }
-      listUsersConnected = newListUsersConnected;
-      io.emit('usersConnected', listUsersConnected);
+      
+      if(Object.keys(listUsersConnected).length !== Object.keys(newListUsersConnected).length){
+        io.emit('usersConnected', newListUsersConnected);
+        listUsersConnected = newListUsersConnected;
+      }
     });
 
     // Get user

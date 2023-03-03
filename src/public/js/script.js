@@ -138,7 +138,7 @@ socket.on('usersConnected', sockets => {
     `;
   });
 
-  containerUsersConnected.style.backgroundColor = "#4bcc47";
+  containerUsersConnected.style.backgroundColor = "#4cb848";
   containerUsersConnected.style.maxHeight = "800px";
 
   setTimeout(() => {
