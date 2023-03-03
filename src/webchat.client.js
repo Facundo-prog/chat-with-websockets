@@ -8,18 +8,16 @@ const config = require('../config');
 const app = express();
 const httpServer = createServer(app);
 
-app.use(express.json());
-
-// Settings
+// Use cookies
 app.use(cookieParser());
 
 // Routes
 app.use('/webchat', routes);
 
-// Static 
+// Static fold /public
 app.use('/public', express.static(`${__dirname}/public`));
 
-// Websocket server
+// Run websocket server
 createWebsocketServer(httpServer);
 
 httpServer.listen(config.port, config.host, () => {
