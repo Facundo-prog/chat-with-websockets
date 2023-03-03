@@ -33,7 +33,7 @@ const createServer = (httpServer) => {
     socket.on('getUser', async (token) => {
       const uid = verifyToken(token)?.uid;
       const user = await pg.getCustomWhere('users', `id = ${uid}`);
-      if(user.length <= 0) return socket.emit('signin', { error: 'El usuario no existe' });
+      if(user.length <= 0) return socket.emit('getUser', { error: 'El usuario no existe' });
       
       listUsersConnected = {
         ...listUsersConnected,
@@ -102,21 +102,16 @@ const createServer = (httpServer) => {
       const token = verifyToken(data.token);
       if(!token) return socket.emit('newMessage', { error: "Ocurrió un error al validar su identidad" });
 
-      const user = await pg.getCustomWhere('users', `id = ${token.uid}`);
       const newMessage = await pg.create('chats', {
         columns: ['username', 'message', 'date'],
-        values: [user[0].username, data.message, data.date]
+        values: [data.username, data.message, data.date]
       });
       if(newMessage <= 0) return socket.emit('newMessage', { error: 'Ocurrió un error al guardar el mensaje' })
 
       await pg.deleteOldMessages();
 
-      io.emit('newMessage', {
-        username: user[0].username, 
-        image: user[0].image,
-        message: data.message,
-        date: data.date
-      });
+      delete data.token;
+      io.emit('newMessage', { ...data });
     });
 
     // Get all messages

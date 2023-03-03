@@ -18,9 +18,13 @@ formSignin.addEventListener('submit', async (e) => {
 
   errorMessage.textContent = "";
   userMessage.textContent = "Registrando usuario...";
- 
-  socket.emit("upload", image[0], image[0].type, username, (status) => {
-    if(status.error) return errorMessage.textContent = status.message;
+
+  const imageName = username.replace(/ /g, "");
+  socket.emit("upload", image[0], image[0].type, imageName, (status) => {
+    if(status.error){
+      userMessage.textContent = "";
+      return errorMessage.textContent = status.message;
+    }
     socket.emit('signin', { username, password, userImage: status.message });
   });
 });

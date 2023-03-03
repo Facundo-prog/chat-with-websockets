@@ -12,11 +12,19 @@ header {
   background: #43a8f0;
   color: #fff;
   padding: 7px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
+header .chatInformation{
+  display: flex;
+  flex-direction: row;
+}
 
-main > h3{
-  margin: 1rem auto;
+header .icon{
+  width: 38px;
 }
 
 .button-container {

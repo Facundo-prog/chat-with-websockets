@@ -11,21 +11,20 @@
 </head>
 <body>
   <header>
-    <h1>Webchat</h1>
+    <img  class="icon" src="/public/images/chatIcon.png" />
+    <h1>Registrarme</h1>
   </header>
 
   <main>
-    <h3>Registrarme</h3>
-
     <form class="card" id="signin">
       <p class="userMessage" id="userMessage"></p>
 
       <div class="input-group">
         <label for="username">Nombre de usuario</label>
-        <input type="text" name="username" required /><br/>
+        <input type="text" name="username" minlength="4" maxlength="20" required /><br/>
 
         <label for="password">Contraseña</label>
-        <input type="password" name="password" required /><br/>
+        <input type="password" name="password" minlength="4" maxlength="10" required /><br/>
 
         <label for="image">Foto de perfil</label>
         <input type="file" name="image" required />

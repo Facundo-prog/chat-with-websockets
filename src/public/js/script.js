@@ -13,12 +13,14 @@ sendButton.addEventListener('click', () => {
   if(message.value.length <= 0) return;
 
   const date = new Date();
-  const formattedDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() }`;
+  const formattedDate = `${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() }`;
 
   socket.emit('sendMessage', {
     token: userData.token,
     message: message.value,
-    date: formattedDate
+    date: formattedDate,
+    username: userData.username,
+    image: userData.image
   });
 
   message.value = "";
@@ -43,6 +45,7 @@ socket.on('getUser', data => {
     document.cookie = "user=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/webchat;";
     location.href = "/webchat/login";
   }
+  
   userData = { ...userData, ...data };
   socket.emit('getMessages', userData.token);
 });
@@ -57,16 +60,12 @@ socket.on('newMessage', data => {
   const fragment = document.createRange().createContextualFragment(
     `
       <div class="${ username === userData.username ? 'message userSentItMessage' : 'message' }">
-        <div class="image-container">
-          <img src="${ image ? image : 'public/images/default.png' }"/>
-        </div>
-
+        <div class="image-container" style="background-image: url(${ image });"></div>
         <div class="message-body">
           <div class="user-info">
             <span class="username">${username}</span>
             <span class="time">${date}</span>
           </div>
-
           <p>${message}</p>
         </div>
       </div>
@@ -94,16 +93,12 @@ function showChatsHistory(chats){
   chats.forEach(element => {
     HTMLString += `
       <div class="${ element.username === userData.username ? 'message userSentItMessage' : 'message' }">
-        <div class="image-container">
-          <img src="${ element.image ? element.image : 'public/images/default.png' }"/>
-        </div>
-
+        <div class="image-container" style="background-image: url(${ element.image });"></div>
         <div class="message-body">
           <div class="user-info">
             <span class="username">${element.username}</span>
             <span class="time">${element.date}</span>
           </div>
-
           <p>${element.message}</p>
         </div>
       </div>
@@ -130,16 +125,15 @@ socket.on('usersConnected', sockets => {
   const select = document.getElementById('usersConnected');
   const keys = Object.keys(sockets);
 
-  select.innerHTML = `<optgroup label="Usuarios conectados">`;
+  select.innerHTML = "";
 
-  for(const id in keys){
+  keys.forEach(key => {
+    if(sockets[key].username)
     select.innerHTML += `
-      <option value="${sockets[keys[id]].username}">
-        <img src="${sockets[keys[id]].image}" />
-        ${sockets[keys[id]].username}
-      </option>
+      <div>
+        <div class="img" style="background-image:url(${sockets[key].image});"></div>
+        <p>${sockets[key].username}</p>
+      </div>
     `;
-  }
-
-  select.innerHTML += `</optgroup>`;
+  });
 });
