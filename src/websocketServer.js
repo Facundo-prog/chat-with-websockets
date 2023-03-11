@@ -100,7 +100,7 @@ const createServer = (httpServer) => {
         if(err) return callback({ error: true, message: "Ocurrió un error al guardar la imagen" });
       
         writeFile(pathImage, file, (err) => {
-          callback({ error: err ? true : false, message: err ? err : `public/images/${nameImage}` });
+          callback({ error: err ? true : false, message: err ? err : `webchat/images/${nameImage}` });
         });
       });
     });

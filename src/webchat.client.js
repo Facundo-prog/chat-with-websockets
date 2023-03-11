@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use('/webchat', routes);
 
 // Static fold /public
-app.use('/public', express.static(`${__dirname}/public`));
+app.use('/webchat', express.static(`${__dirname}/public`));
 
 // Run websocket server
 createWebsocketServer(httpServer);
