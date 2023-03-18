@@ -8,7 +8,7 @@ const { verifyToken, newToken } = require('./cryptography/jwt');
 let listUsersConnected = {};
 
 const createServer = (httpServer) => {
-  const io = new Server(httpServer);
+  const io = new Server(httpServer, { path: '/webchat/socket.io/' });
 
   io.on('connection', socket => {
 

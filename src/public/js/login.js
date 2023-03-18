@@ -1,4 +1,6 @@
-const socket = io();
+const socket = io('/', {
+  path: '/webchat/socket.io/'
+});
 
 const formLogin = document.getElementById('login');
 const errorMessage = document.getElementById('errorMessage');

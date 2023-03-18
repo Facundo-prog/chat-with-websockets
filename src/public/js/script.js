@@ -1,4 +1,6 @@
-const socket = io();
+const socket = io('/', {
+  path: '/webchat/socket.io/'
+});
 
 const sendButton = document.getElementById('send-message');
 const messages = document.getElementById('all-messages');
