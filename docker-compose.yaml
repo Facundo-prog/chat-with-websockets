@@ -1,4 +1,3 @@
-version: "2"
 
 services:
   postgres:
@@ -8,6 +7,6 @@ services:
       - POSTGRES_USER=facu
       - POSTGRES_PASSWORD=admin1234
     ports:
-      - 5432:5432
+      - 5433:5432
     volumes:
       - ./postgres_db:/var/lib/postgresql/data

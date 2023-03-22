@@ -4,7 +4,7 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username varchar(64) UNIQUE NOT NULL,
   password varchar(64) NOT NULL,
-  image varchar(64)
+  image varchar(64) NOT NULL
 );
 
 CREATE TABLE chats(
