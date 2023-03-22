@@ -14,7 +14,6 @@ routesApi.get('/login', (req, res) => {
 });
 
 routesApi.get('/signin', (req, res) => {
-  res.setHeader('message', 'error');
   res.sendFile(viewsPath + '/signin.html');
 });
 
