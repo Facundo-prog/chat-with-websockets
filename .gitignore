@@ -1,4 +1,7 @@
-.env
 node_modules
+
 postgres_db
-src/public/images
+protectedFiles
+
+.env
+dist

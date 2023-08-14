@@ -1,0 +1,26 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialActions"]
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model WebchatUser {
+  id       String            @id @default(cuid())
+  username String            @unique
+  password String
+  image    String
+  messages WebchatMessage[]
+}
+
+model WebchatMessage {
+  id      String      @id @default(cuid())
+  message String
+  date    String
+  userId  String
+  user    WebchatUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

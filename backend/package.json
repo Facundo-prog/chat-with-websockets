@@ -1,0 +1,34 @@
+{
+  "name": "webchat-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "set NODE_ENV=production&& node ./index.js",
+    "migration:sync": "prisma generate",
+    "migration:generate": "prisma migrate dev",
+    "migration:deploy": "prisma migrate deploy",
+    "migration:revert": "prisma migrate reset"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.1",
+    "pg": "^8.11.2",
+    "pg-hstore": "^2.3.4",
+    "prisma": "^5.1.1",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

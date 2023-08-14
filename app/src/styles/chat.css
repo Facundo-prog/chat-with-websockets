@@ -1,0 +1,129 @@
+.all-messages {
+  display: block;
+  padding: 1rem 0.5rem;
+  overflow-y: scroll;
+  max-height: 70vh;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.userSentItMessage{
+  flex-flow: row-reverse;
+  justify-content: right;
+}
+
+.userSentItMessage .message-body{
+  text-align: right;
+  margin-right: 10px;
+}
+
+.userSentItMessage .message-body p{
+  margin-left: auto !important;
+}
+
+.message .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: auto;
+  border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.message .message-body {
+  margin-left: 10px;
+  width: calc(100% - 50px)
+}
+
+.message .message-body .user-info {
+  font-weight: bold;
+}
+
+.message .message-body .user-info .time {
+  color: #a19c9c;
+  font-size: 0.7rem;
+  margin: 0rem 0.2rem;
+}
+
+.message .message-body p {
+  max-width: 60%;
+  margin-top: 5px;
+  color: #6e6e6e;
+  font-size: 14px;
+}
+
+.send-message {
+  background: #3F51B5;
+  padding: 10px;
+  display: flex;
+}
+
+.send-message input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.send-message button {
+  margin-left: 10px;
+}
+
+.containerUsersConnected{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #F0F0F0;
+  border-radius: 0.375rem;
+  padding: 0.6rem 0.5rem;
+  width: 160px;
+  max-height: 37px;
+  right: 4.5rem;
+
+  transition: max-height 500ms ease;
+  transition: background 300ms ease;
+}
+.containerUsersConnected > p{
+  color: #000;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.containerUsersConnected:hover{
+  max-height: 800px;
+}
+
+.listUsersConnected{
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  text-align: left;
+  overflow: hidden;
+}
+.listUsersConnected > div{
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.3rem;
+}
+.listUsersConnected .img{
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 0.3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.listUsersConnected p{
+  font-weight: bold;
+  font-size: 1rem;
+  margin: auto 0px;
+  overflow: hidden;
+}
