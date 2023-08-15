@@ -3,12 +3,12 @@ Webchat is a chat that uses the websockets protocol
 
 # Quick start
 * Install dependencies
-  * Yarn: ```cd backend && yarn && cd ../app && yarn && cd ../```
-  * NPM: ```cd backend && npm i && cd ../app && npm i && cd ../```
+  * Yarn: ```yarn```
+  * NPM: ```npm i```
 
 * Generate App bundle
-  * Yarn: ```cd app && yarn build && cd ../```
-  * NPM: ```cd app && npm run build && cd ../```
+  * Yarn: ```yarn app:build```
+  * NPM: ```npm run app:build```
 
 * Copy files
   * Copy "assets" folder from app/dist/static/ in backend/static/
@@ -27,5 +27,5 @@ End structure:
 ```
 
 * Run 
-  * Yarn: ```cd backend && yarn dev```
-  * NPM: ```cd backend && npm run dev```
+  * Yarn: ```yarn backend:dev```
+  * NPM: ```npm run backend:dev```
