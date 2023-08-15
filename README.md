@@ -26,6 +26,9 @@ End structure:
     |   |-index.html
 ```
 
+* Run database with Docker compose
+  * ```cd backend && docker-compose up```
+
 * Run 
   * Yarn: ```yarn backend:dev```
   * NPM: ```npm run backend:dev```
