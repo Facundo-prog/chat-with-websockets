@@ -1,16 +1,16 @@
 {
-  "name": "workspace",
+  "name": "webchat",
   "version": "1.0.0",
   "private": true,
   "repository": "git@github.com:Facundo-prog/webchat_with_websockets.git",
   "author": "facundo.prog <facundo.prog@gmail.com>",
   "workspaces": ["packages/*"],
   "scripts": {
-    "app:build": "yarn workspace app run build",
-    "backend:dev": "yarn workspace backend run dev",
-    "backend:start": "yarn workspace backend run start",
-    "backend:prisma:sync": "yarn workspace backend run migration:sync",
-    "backend:migration:generate": "yarn workspace backend run migration:generate"
+    "app:build": "npm run run build -w app",
+    "backend:dev": "npm run dev -w backend",
+    "backend:start": "npm run start -w backend",
+    "backend:prisma:sync": "npm run migration:sync -w backend",
+    "backend:migration:generate": "npm run migration:generate -w backend"
   },
   "license": "MIT",
   "dependencies": {},
