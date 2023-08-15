@@ -7,7 +7,6 @@ import config from './config/config.js';
 import errorsMiddlewar from './middlewares/errors.js';
 import initWebsocket from './websocketServer.js';
 import authWebchat from './middlewares/authWebchat.js';
-import { verifyJwt } from './cryptography/jwt.js';
 import router from './routes/routes.js';
 
 const app = express();
@@ -18,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-if(config.env === 'dev') app.use('/', express.static('./static'));
+if(config.env === 'dev') app.use('/static', express.static('./static'));
 
 app.use('/images', authWebchat, express.static('./protectedFiles/images'));
 app.use('/', router);

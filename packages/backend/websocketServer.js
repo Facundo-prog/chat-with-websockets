@@ -75,7 +75,7 @@ export default function initWebsoketServer(httpServer) {
         data: {
           username,
           password: hash,
-          image: '/icons/userDefault.png'
+          image: '/static/icons/userDefault.png'
         }
       }).catch((e) => console.log("[ERROR DB]:", e.message));
       if(!newUser) return callback({ error: 'Ocurrió un error al registrar su usuario' });

@@ -1,9 +1,9 @@
 node_modules
 .env
 
-backend/postgres_db
-backend/protectedFiles
-backend/static/assets
-backend/views/index.html
-app/dist
+packages/backend/postgres_db
+packages/backend/protectedFiles
+packages/backend/static/assets
+packages/backend/views/index.html
+packages/app/dist
 
