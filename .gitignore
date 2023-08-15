@@ -1,7 +1,9 @@
 node_modules
-
-postgres_db
-protectedFiles
-
 .env
-dist
+
+backend/postgres_db
+backend/protectedFiles
+backend/static/assets
+backend/views/index.html
+app/dist
+
